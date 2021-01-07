@@ -52,6 +52,8 @@ PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%F{240}%1~%f%b %# '
 RPROMPT='$(git_super_status)'
 
 # rbenv / Ruby / Homebrew OpenSSL
+eval "$(rbenv init -)"
+
 # After installing rbenv via Homebrew, this message is printed:
 # 
 # ruby-build installs a non-Homebrew OpenSSL for each Ruby version installed and these are never upgraded.
