@@ -47,6 +47,9 @@ setopt HIST_REDUCE_BLANKS
 # GIT BRANCH STATUS
 source ~/checkouts/open-source/zsh-git-prompt/zshrc.sh
 
+# GIT BRANCH AUTOCOMPLETE
+autoload -Uz compinit && compinit
+
 # PROMPT
 PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%F{240}%1~%f%b %# '
 RPROMPT='$(git_super_status)'
