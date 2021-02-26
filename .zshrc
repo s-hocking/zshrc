@@ -45,7 +45,7 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 
 # GIT BRANCH STATUS
-source ~/checkouts/open-source/zsh-git-prompt/zshrc.sh
+source ~/Documents/checkouts/open-source/zsh-git-prompt/zshrc.sh
 
 # GIT BRANCH AUTOCOMPLETE
 autoload -Uz compinit && compinit
