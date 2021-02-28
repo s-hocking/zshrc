@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # ANDROID CMD LINE TOOLS
 export ANDROID_HOME=~/Library/Android/sdk
 export PATH=${PATH}:$ANDROID_HOME/tools/bin
@@ -5,8 +12,8 @@ export PATH=${PATH}:$ANDROID_HOME/tools
 export PATH=${PATH}:$ANDROID_HOME/platform-tools
 
 # COLOURS
-autoload -U colors && colors
-PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
+#autoload -U colors && colors
+#PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
 
 # ALIASES
 alias ll='ls -lahGF'
@@ -22,37 +29,33 @@ alias gb='git branch'
 alias gf='git fetch -p'
 
 # HISTORY
-HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
-setopt EXTENDED_HISTORY
+#HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+#setopt EXTENDED_HISTORY
 
 # History size
-SAVEHIST=5000
-HISTSIZE=2000
+#SAVEHIST=5000
+#HISTSIZE=2000
 
 # share history across multiple zsh sessions
-setopt SHARE_HISTORY
+#setopt SHARE_HISTORY
 # append to history
-setopt APPEND_HISTORY
+#setopt APPEND_HISTORY
 # adds commands as they are typed, not at shell exit
-setopt INC_APPEND_HISTORY
+#setopt INC_APPEND_HISTORY
 # expire duplicates first
-setopt HIST_EXPIRE_DUPS_FIRST 
+#setopt HIST_EXPIRE_DUPS_FIRST 
 # do not store duplications
-setopt HIST_IGNORE_DUPS
+#setopt HIST_IGNORE_DUPS
 #ignore duplicates when searching
-setopt HIST_FIND_NO_DUPS
+#setopt HIST_FIND_NO_DUPS
 # removes blank lines from history
-setopt HIST_REDUCE_BLANKS
-
-# GIT BRANCH STATUS
-source ~/Documents/checkouts/open-source/zsh-git-prompt/zshrc.sh
+#setopt HIST_REDUCE_BLANKS
 
 # GIT BRANCH AUTOCOMPLETE
-autoload -Uz compinit && compinit
+#autoload -Uz compinit && compinit
 
 # PROMPT
-PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%F{240}%1~%f%b %# '
-RPROMPT='$(git_super_status)'
+#PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%F{240}%1~%f%b %# '
 
 # rbenv / Ruby / Homebrew OpenSSL
 eval "$(rbenv init -)"
@@ -70,3 +73,8 @@ eval "$(rbenv init -)"
 #
 # With that in mind, here is the additional export:
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
