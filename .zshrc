@@ -37,25 +37,25 @@ alias gf='git fetch -p'
 #HISTSIZE=2000
 
 # share history across multiple zsh sessions
-#setopt SHARE_HISTORY
+setopt SHARE_HISTORY
 # append to history
-#setopt APPEND_HISTORY
+setopt APPEND_HISTORY
 # adds commands as they are typed, not at shell exit
-#setopt INC_APPEND_HISTORY
+setopt INC_APPEND_HISTORY
 # expire duplicates first
-#setopt HIST_EXPIRE_DUPS_FIRST 
+setopt HIST_EXPIRE_DUPS_FIRST 
 # do not store duplications
-#setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_DUPS
 #ignore duplicates when searching
-#setopt HIST_FIND_NO_DUPS
+setopt HIST_FIND_NO_DUPS
 # removes blank lines from history
-#setopt HIST_REDUCE_BLANKS
+setopt HIST_REDUCE_BLANKS
 
 # GIT BRANCH AUTOCOMPLETE
-#autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit
 
-# PROMPT
-#PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%F{240}%1~%f%b %# '
+# SKEDULO EDGE SERVICE SECRETS FILE
+source ~/edge-service-secrets.zsh
 
 # rbenv / Ruby / Homebrew OpenSSL
 eval "$(rbenv init -)"
@@ -72,9 +72,13 @@ eval "$(rbenv init -)"
 # OpenSSL <1.1.
 #
 # With that in mind, here is the additional export:
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+#export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/shocking/.sdkman"
+[[ -s "/Users/shocking/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/shocking/.sdkman/bin/sdkman-init.sh"
