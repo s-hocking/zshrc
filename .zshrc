@@ -54,9 +54,6 @@ setopt HIST_REDUCE_BLANKS
 # GIT BRANCH AUTOCOMPLETE
 autoload -Uz compinit && compinit
 
-# SKEDULO EDGE SERVICE SECRETS FILE
-source ~/edge-service-secrets.zsh
-
 # rbenv / Ruby / Homebrew OpenSSL
 eval "$(rbenv init -)"
 
@@ -78,7 +75,3 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/shocking/.sdkman"
-[[ -s "/Users/shocking/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/shocking/.sdkman/bin/sdkman-init.sh"
